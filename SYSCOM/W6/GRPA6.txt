@@ -1,0 +1,4 @@
+script() { 
+tar cf headers.tar project/*.h
+gzip --keep headers.tar
+}

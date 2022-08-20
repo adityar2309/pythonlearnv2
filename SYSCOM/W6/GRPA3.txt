@@ -1,0 +1,6 @@
+script() { 
+touch temp.txt
+cat input.txt >> temp.txt
+sed -i "/^[0-9]/s/delta/gamma/" temp.txt
+cat temp.txt
+}

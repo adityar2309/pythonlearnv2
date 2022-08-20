@@ -1,0 +1,13 @@
+echo '
+#!/usr/bin/sed -f
+1i # Copyright IITM 2022
+$a # Copyright IITM 2022
+/() {/i # START FUNCTION
+/^}/a # END FUNCTION
+/active_sleep/i # TODO:DEPRECATED
+s/background_sleep/inactive_sleep/g
+10i ####
+19i ####
+28i ####
+' | col > myscript.sed
+

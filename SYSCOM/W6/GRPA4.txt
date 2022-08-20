@@ -1,0 +1,4 @@
+script() { 
+
+sed -e '/{/i # START FUNCTION' -e '/}/a # END FUNCTION' functions.sh
+}

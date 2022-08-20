@@ -1,0 +1,5 @@
+script() { echo '
+test | tee templog
+cat templog >> log
+'
+}  

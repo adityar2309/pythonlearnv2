@@ -1,0 +1,4 @@
+script() { echo '
+ls -d */ | wc -l
+'
+}

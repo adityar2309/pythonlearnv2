@@ -1,0 +1,4 @@
+script() { echo '
+wc -l twingle || createTwingle | wc -l 
+'
+}

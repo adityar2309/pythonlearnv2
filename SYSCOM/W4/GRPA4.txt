@@ -1,0 +1,5 @@
+script() { echo '
+lower="$(ls /projects/ | grep -v '[[:upper:]]')";
+upper="$(ls /projects/ | grep -E '[[:upper:]]')";
+'
+}

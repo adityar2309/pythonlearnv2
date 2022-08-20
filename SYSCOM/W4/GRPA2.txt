@@ -1,0 +1,4 @@
+script() { echo '
+grep -w "Manager,R&D" employees.csv > info.csv
+'
+}

@@ -1,0 +1,4 @@
+script() { echo '
+cat test.txt | egrep -v -i "\bgnu\b|^$"
+'
+}

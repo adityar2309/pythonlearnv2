@@ -1,0 +1,4 @@
+script() { echo '
+grep $state Pincode_info.csv | grep -cE "([0-9]{1})[0-9]{4}\1"
+'
+}

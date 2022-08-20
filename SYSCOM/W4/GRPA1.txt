@@ -1,0 +1,4 @@
+script() { echo '
+cat poem | egrep -v "\bthe\b|\ba\b|\ban\b|^$" | wc -l
+'
+}

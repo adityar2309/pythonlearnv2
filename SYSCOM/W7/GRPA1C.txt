@@ -1,0 +1,6 @@
+script(){ echo '
+BEGIN{FS=","; num=0;} {num+=NF;} END{print num;}
+
+' >yourScript.awk
+awk -f yourScript.awk marks.csv
+}

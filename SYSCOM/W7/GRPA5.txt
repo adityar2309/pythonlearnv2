@@ -1,0 +1,36 @@
+script() { echo '
+BEGIN{
+  FS = ",";
+}
+{
+  if (NR == 1)
+  {
+    lowc=int($3);
+    count =0;
+    name[count] = $2;
+    next;
+  }
+  Name = $1;
+  leave = $3;
+  if (leave < lowc)
+  {
+    lowc = leave;
+    delete name;
+    count = 0;
+    name[count] = $2;
+  }
+  else if (leave == lowc)
+  {
+    count++; name[count] = $2
+  }
+}
+
+END{
+  for (i=0; i<=count; i++)
+  {
+    print name[i];
+  }
+}
+' > yourScript.awk
+awk -f yourScript.awk EmployeeDetails.csv
+}

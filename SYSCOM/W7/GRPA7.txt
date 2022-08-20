@@ -1,0 +1,18 @@
+script() { echo '
+
+BEGIN {
+ FS = ",";
+}
+{
+  a = $2
+  b = $3
+  if (a ~ item) {
+    ans = b*n;
+    print ans;
+    exit;
+  }
+}
+
+' > yourScript.awk
+awk -v item=$1 -v n=$2 -f yourScript.awk groceries.csv
+}

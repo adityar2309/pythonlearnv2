@@ -1,0 +1,32 @@
+eof="EOF"
+while read file; do
+  if [[ $file =~ $eof ]]; then
+    break
+  fi
+  while read line; do
+    if [[ $line =~ $eof ]]; then 
+      break
+    fi
+    echo $line >>$file
+  done
+done
+######### Driver code ends here
+
+######### Script starts here
+for file in *.c; do
+  awk '
+
+
+    BEGIN {
+      flag=0;
+    }
+
+    {
+      if (length($0)>50) flag=1;
+    }
+
+    END {
+      if (flag==1) print FILENAME;
+    }
+  ' $file
+done

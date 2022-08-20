@@ -1,0 +1,47 @@
+script () { echo '
+BEGIN{
+  FS = ","
+}
+
+{
+  if (NR == 1){
+    l1997 = 0; c1997 = 0; av1997 = 0;
+    l1998 = 0; c1998 = 0; av1998 = 0;
+    l1999 = 0; c1999 = 0; av1999 = 0;
+    l2000 = 0; c2000 = 0; av2000 = 0;
+  }
+  EID = $1;
+  leave = int($3);
+  # to obtain year from employee ID
+  year = int(substr(EID, 2, 4));
+  if (year == 1997)
+  {
+    l1997 = l1997 + leave; c1997++;}
+  else if (year == 1998)
+  {
+    l1998 = l1998 + leave; c1998++;}
+  else if (year == 1999)
+  {
+    l1999 = l1999 + leave; c1999++;}
+  else if (year == 2000)
+  {
+    l2000 = l2000 + leave; c2000++;}
+}
+
+END{
+  if (c1997 != 0)
+    {av1997 = l1997/c1997;}
+  if (c1998 != 0)
+    {av1998 = l1998/c1998;}
+  if (c1999 != 0)
+    {av1999 = l1999/c1999;}
+  if (c2000 != 0)
+    {av2000 = l2000/c2000;}
+  print (int(av1997))
+  print (int(av1998))
+  print (int(av1999))
+  print (int(av2000))
+}
+' >yourScript.awk
+awk -f yourScript.awk EmployeeDetails.csv
+}

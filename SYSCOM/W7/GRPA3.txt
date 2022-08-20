@@ -1,0 +1,25 @@
+myCount(){
+filename=${@: -1}
+
+while getopts "wlns:" options; do
+  case "${options}" in
+    s)
+      str=${OPTARG}
+      grep $str $filename | awk "END{print NR}"
+      ;;
+    w)
+      awk "BEGIN{c=0} {c+=NF} END{print c}" $filename
+      ;;
+    l)
+      awk "END{print NR}" $filename 
+      ;;
+    n)
+      awk "BEGIN{c=0} /^[[:digit:]]+$/{c++} END{print c}" $filename
+      ;;
+    *)
+      echo "ERROR"
+      ;;
+  esac
+done
+
+}

@@ -1,0 +1,4 @@
+script() { echo '
+echo "Shell: "$SHELL"|PID:"%%"|Flags:"$-
+'
+}

@@ -1,0 +1,13 @@
+script() { 
+$1
+$2
+
+if [ $# -eq 2 ]
+then
+    #If they are equal then print this
+    echo $(($1+$2))
+else
+    #else print this
+    echo "Error"
+fi
+}

@@ -1,0 +1,12 @@
+script() { 
+# If directory as argument one is not present, create it.
+ls -d $1
+if [[ $? -ne 0 ]]; then
+        mkdir $1
+fi
+
+cd perf_folder
+for file in *perf*.c; do
+       mv $file ../$1/program_$file
+done
+} 

@@ -1,0 +1,10 @@
+script() {
+a=ls -l $1 | cut -c2
+b=ls -l $1 | cut -c3-10
+if [ $a == 'r' ]
+  then
+  if [ $b == '--------' ]
+    then
+        echo "Yes"
+  fi
+}

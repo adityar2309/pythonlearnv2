@@ -1,0 +1,15 @@
+script() {
+declare -a nums
+
+for i in seq $1; do
+    if [[ $1%$i -eq 0 ]]; then
+    nums+=($i)
+    fi
+done
+
+if [[ ${#nums[@]} -gt 2 ]]; then
+echo No
+else
+echo Yes
+fi
+}

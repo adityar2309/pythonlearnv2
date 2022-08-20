@@ -1,0 +1,13 @@
+script() {
+read value
+pre='^[+][0-9]([.][0-9]+)*$'
+nre='^[-]+[0-9]([.][0-9]+)$'
+
+if [[ $value =~ $pre ]]; then
+echo PNUM
+elif [[ $value =~ $nre ]]; then
+echo NNUM
+else
+echo STRING
+fi
+}

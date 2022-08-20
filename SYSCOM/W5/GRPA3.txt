@@ -1,0 +1,19 @@
+script() {
+min=$1
+max=$1
+
+for i in $@
+    do
+        if [ $min -gt $i ]
+            then
+            min=$i
+        fi
+        
+        if [ $max -lt $i ]
+            then
+            max=$i
+        fi
+    done
+
+echo "Maximum: $max | Minimum: $min"
+}
